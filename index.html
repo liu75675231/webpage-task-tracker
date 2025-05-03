@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your space for |</title>
+  <style>
+    /* 整页加载时淡入 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      opacity: 0;
+      animation: pageFadeIn 1s ease forwards;
+    }
+    @keyframes pageFadeIn {
+      to { opacity: 1; }
+    }
+
+    /* 布局：左右两列 */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .left, .right {
+      flex: 1;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    /* 左侧样式 */
+    .logo { font-size: 24px; font-weight: bold; }
+    nav { margin-top: 10px; }
+    nav a { margin-right: 20px; text-decoration: none; color: #333; }
+    h1 {
+      font-size: 48px;
+      margin: 40px 0 20px;
+    }
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      background: #1aa7b9;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #168a94;
+    }
+    .reviews {
+      margin-top: 10px;
+      color: #777;
+      font-size: 14px;
+    }
+    .reviews span {
+      font-weight: bold;
+    }
+
+    /* 右侧：轮播容器 */
+    .carousel {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .carousel img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+        <div class="logo">m</div>
+        <nav>
+            <a href="#">Plus</a>
+            <a href="#">Teams</a>
+        </nav>
+    </div>
+    <!-- 左侧内容 -->
+    <div class="left">
+      
+      <h1>Your space for<span class="caret">|</span></h1>
+      <div class="subtitle">
+        Turn your potential into progress with a beautifully simple start page.
+      </div>
+      <a href="#" class="btn">+ Add to Chrome&nbsp;It's free!</a>
+      <!-- <div class="reviews">
+        ★★★★☆ <span>13,000+</span> Chrome store reviews<br>
+        <span>3+ million</span> active users
+      </div> -->
+    </div>
+
+    <!-- 右侧轮播 -->
+    <div class="right">
+      <div class="carousel" id="carousel">
+        <!-- 请将下面的 src 替换为你的实际图片路径 -->
+        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110622_aerial-footage-drone-footage-drone-shot-islands-6003445.jpeg" class="active" alt="Slide 1">
+        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110900_flat-lay-top-view-bird-s-eye-view-realistic-photography-cinematic-still-bird-eye-view-shot-wind-27807302.jpeg" alt="Slide 2">
+        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110958_free-video-2099332.jpg" alt="Slide 3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 轮播逻辑：每 4 秒切换一张，过渡时间为 1s
+    (function() {
+      const slides = document.querySelectorAll('#carousel img');
+      let current = 0;
+      const total = slides.length;
+      setInterval(() => {
+        // 当前淡出
+        slides[current].classList.remove('active');
+        // 下一个索引
+        current = (current + 1) % total;
+        // 下一个淡入
+        slides[current].classList.add('active');
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>
