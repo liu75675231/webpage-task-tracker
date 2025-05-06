@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your space for |</title>
+  <title>Your space for task tracking</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
   <style>
     /* 整页加载时淡入 */
     body {
@@ -18,34 +20,58 @@
 
     /* 布局：左右两列 */
     .container {
-      display: flex;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: anchor-center;
     }
     .left, .right {
       flex: 1;
       padding: 40px;
       box-sizing: border-box;
     }
+    .left {
+      width: 45%;
+    }
+    .right {
+      width: 45%;
+    }
 
+    .panel-header {
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 70px;
+      width: calc(100% - 30px)
+    }
+    .panel-body {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1280px;
+      width: 100%;
+    }
     /* 左侧样式 */
-    .logo { font-size: 24px; font-weight: bold; }
+    .logo { width: 44px; font-weight: bold; margin-right: 30px;}
     nav { margin-top: 10px; }
     nav a { margin-right: 20px; text-decoration: none; color: #333; }
     h1 {
       font-size: 48px;
-      margin: 40px 0 20px;
+      margin: 10px 0 20px;
     }
     .subtitle {
       font-size: 18px;
       margin-bottom: 30px;
       color: #555;
     }
+    .btn-desc {
+      opacity: .7;
+    }
     .btn {
       display: inline-block;
       background: #1aa7b9;
       color: #fff;
       text-decoration: none;
-      padding: 15px 25px;
+      padding: 16px 34px;
       border-radius: 25px;
       font-size: 16px;
       transition: background 0.3s;
@@ -85,36 +111,40 @@
 </head>
 <body>
   <div class="container">
-    <div>
-        <div class="logo">m</div>
+    <div class="panel-header">
+        <img class="logo" src="icon.png" />
         <nav>
-            <a href="#">Plus</a>
-            <a href="#">Teams</a>
+          <!-- <span>Your best extension for task tracking</span> -->
+            <a href="#">Home</a>
+            <!-- <a href="#">Teams</a> -->
         </nav>
     </div>
-    <!-- 左侧内容 -->
-    <div class="left">
-      
-      <h1>Your space for<span class="caret">|</span></h1>
-      <div class="subtitle">
-        Turn your potential into progress with a beautifully simple start page.
+    <div class="panel-body">
+      <!-- 左侧内容 -->
+      <div class="left">
+            
+        <h1>Your space for<span class="caret"> task tracking</span></h1>
+        <div class="subtitle">
+          Make it easier for you to manage your own tasks.
+        </div>
+        <a href="https://chromewebstore.google.com/detail/task-tracking/dgkgcfhdkclmahnikmigkpdhbnpkdnao" class="btn" target="_blank">+ Add to Chrome&nbsp;<span class="btn-desc">It's free!</span></a>
+        <!-- <div class="reviews">
+          ★★★★☆ <span>13,000+</span> Chrome store reviews<br>
+          <span>3+ million</span> active users
+        </div> -->
       </div>
-      <a href="#" class="btn">+ Add to Chrome&nbsp;It's free!</a>
-      <!-- <div class="reviews">
-        ★★★★☆ <span>13,000+</span> Chrome store reviews<br>
-        <span>3+ million</span> active users
-      </div> -->
-    </div>
 
-    <!-- 右侧轮播 -->
-    <div class="right">
-      <div class="carousel" id="carousel">
-        <!-- 请将下面的 src 替换为你的实际图片路径 -->
-        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110622_aerial-footage-drone-footage-drone-shot-islands-6003445.jpeg" class="active" alt="Slide 1">
-        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110900_flat-lay-top-view-bird-s-eye-view-realistic-photography-cinematic-still-bird-eye-view-shot-wind-27807302.jpeg" alt="Slide 2">
-        <img src="http://js-travel.oss-cn-beijing.aliyuncs.com/img/1745110958_free-video-2099332.jpg" alt="Slide 3">
+      <!-- 右侧轮播 -->
+      <div class="right">
+        <div class="carousel" id="carousel">
+          <!-- 请将下面的 src 替换为你的实际图片路径 -->
+          <img src="carousel-1.png" class="active" alt="task tracking screenshot">
+          <img src="carousel-1.png" alt="task tracking screenshot">
+          <img src="carousel-1.png" alt="task tracking screenshot">
+        </div>
       </div>
     </div>
+    
   </div>
 
   <script>
